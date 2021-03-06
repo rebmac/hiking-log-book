@@ -5,6 +5,7 @@ import {useState, useEffect } from 'react';
 function App() {
   return (
     <div className="App">
+
       {/* add a submit listener to our form */}
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="kmHiked">How many kilometres did you hike today?</label>
@@ -14,7 +15,7 @@ function App() {
         <button>Add Your Book</button>
       </form>
       {/* map through booksArray in state and display them to the page */}
-     <h1>Hiker Trail Log</h1>
+     <h1>Hiker Trail Log test test test</h1>
     </div>
   );
 }
