@@ -76,7 +76,7 @@ function App() {
         <form action="" onSubmit={handleSubmit}>
 
           <label htmlFor="titleOfHike">Title:</label>
-          <input type="text" id="titleOfHike" placeholder="e.g. Bruce Trail or Most Epic Hike" onChange={handleTitleChange} className="titleOfHike wrapper" required />
+          <input type="text" id="titleOfHike" placeholder="e.g. Bruce Trail" onChange={handleTitleChange} className="titleOfHike wrapper" required />
 
           <div className="dateAndkm">
             <div className="displayColumn">
