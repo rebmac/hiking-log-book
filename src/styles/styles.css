@@ -228,8 +228,8 @@ html {
 }
 
 body {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.9)), to(rgba(118, 160, 138, 0.3))), url(../styles/kirk-thornton-ivKjAj9IISY-unsplash.jpg);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(118, 160, 138, 0.3)), url(../styles/kirk-thornton-ivKjAj9IISY-unsplash.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.9)), to(rgba(118, 160, 138, 0.3))), url(https://images.unsplash.com/photo-1546975559-026eed2e9219?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(118, 160, 138, 0.3)), url(https://images.unsplash.com/photo-1546975559-026eed2e9219?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -261,27 +261,69 @@ header {
 
 h1 {
   font-family: "Amatic SC", cursive;
-  font-size: 10rem;
+  font-size: 12rem;
   color: #4a455c;
 }
 
 h2 {
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   text-transform: capitalize;
   padding-bottom: 2rem;
 }
 
-main {
+main,
+form,
+ul,
+li button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 form {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #F5CDB6;
+  padding: 15px 20px 30px 20px;
+  border: 3px dashed #4a455c;
+  margin-bottom: 4rem;
+}
+
+label {
+  padding-bottom: 0.4rem;
+}
+
+label,
+button,
+.titleOfHike,
+.dateAndkm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.dateAndkm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: .7rem;
+}
+
+.displayColumn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,22 +331,157 @@ form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 70%;
+  width: calc(100% / 2 - 1rem);
+}
+
+input {
+  margin-bottom: 0.4rem;
+  padding-bottom: .2rem;
+  padding-top: .2rem;
+  border-radius: 25px;
+  text-align: center;
+  border: 1px solid white;
+  color: grey;
+}
+
+.dateAndkm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.kmHiked {
+  margin-top: .2rem;
+}
+
+.kmHiked,
+.dateOfHike {
+  margin: 0;
+}
+
+.km {
+  border: 1px dashed white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.notableThingsOnHike {
+  margin-top: .7rem;
+}
+
+textarea {
+  text-align: center;
+  font-size: 1.4rem;
+  color: darkgray;
+  border: none;
+  border-radius: 25px;
+}
+
+.addLogButton {
+  background-color: #76A08A;
+  color: white;
+  padding: .5rem;
+  text-transform: uppercase;
   font-size: 1.2rem;
-  background-color: #F5CDB6;
-  padding: 15px 20px 30px 20px;
-  border: 3px solid #4a455c;
+  border: 1px solid #76A08A;
+  border-radius: 25px;
+  width: 40%;
+  margin-top: 1.7rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-label {
-  padding-bottom: 0.4rem;
+.addLogButton:hover, .addLogButton:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
-input,
-label,
-button {
-  width: 90%;
-  margin: 0 auto;
+.loggedInfo {
+  margin-bottom: 5rem;
+}
+
+ul {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+li {
+  width: calc(100% / 2 - 2rem);
+  margin: 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  background-color: rgba(74, 69, 92, 0.8);
+  padding: 1rem;
+  border: 2px solid #4a455c;
+}
+
+.title {
+  text-transform: uppercase;
+  border-bottom: 1px solid white;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.displayDateAndkm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.date {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
+}
+
+.notableThings {
+  font-size: 1.5rem;
+  color: #FAE0D1;
+}
+
+li p {
+  margin-bottom: 1rem;
+}
+
+li button {
+  margin-right: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  padding: .7rem;
+  border-radius: 50%;
+  border: 1px solid #76A08A;
+  background-color: #76A08A;
+  color: white;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+li button:hover, li button:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  border: 1px solid white;
 }
 
 footer {
@@ -323,5 +500,63 @@ span a {
   font-size: 1.2rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  .addLogButton {
+    width: 60%;
+  }
+  form,
+  input,
+  textarea {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 840px) {
+  li {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 5rem;
+    padding-top: 1rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  form,
+  label,
+  input,
+  title,
+  .titleOfHike,
+  textarea,
+  .wrapper,
+  .addLogButton {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .dateAndkm {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 95%;
+  }
+  .displayColumn {
+    width: 100%;
+  }
+  .addLogButton {
+    margin-top: 1.7rem;
+  }
+  ul {
+    margin-bottom: 80px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

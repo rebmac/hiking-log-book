@@ -257,7 +257,13 @@ footer{
     .addLogButton{
         width: 60%;
     }
+    form,
+    input,
+    textarea{
+        font-size: 1.7rem;
+    }
    }
+
 
    @media (max-width: 840px){
     
@@ -280,20 +286,24 @@ footer{
        title,
        .titleOfHike,
        textarea,
-       .wrapper{
+       .wrapper,
+       .addLogButton{
            width: 95%;
            margin: 0 auto;
-       }
-       input{
-           font-size: 1rem;
        }
 
        .dateAndkm{
            flex-wrap: wrap;
-           width: 100%;
+           width: 95%;
        }
        .displayColumn{
            width: 100%;
+       }
+       .addLogButton{
+           margin-top: 1.7rem;
+       }
+       ul{
+           margin-bottom: 80px;
        }
 
     }
