@@ -38,7 +38,6 @@ function App() {
   //define the handlers
   const handleSubmit = (event) => {
     event.preventDefault();
-
     //push the values in the numberInput and the dateInput state variables to the database
     dbRef.push([titleInput, dateInput, numberInput, notableThingsInput]);
     event.target.reset();
