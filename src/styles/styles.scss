@@ -113,10 +113,28 @@ input{
     margin-top:.2rem;
 }
 
-.weatherIcon{
-    margin-top: 1rem;
-    font-size: 2rem;
-    color: $junoColor;
+.kmHiked,
+.dateOfHike{
+    margin: 0;
+}
+
+.km{
+    border: 1px dashed white;
+    width: fit-content;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.notableThingsOnHike{
+    margin-top: .7rem;
+}
+
+textarea{
+    text-align: center;
+    font-size: 1.4rem;
+    color: darkgray;
+    border: none;
+    border-radius: 25px;
 }
 
 .addLogButton{
@@ -128,7 +146,7 @@ input{
     border: 1px solid $teal;
     border-radius: 25px;
     width: 40%;
-    margin-top: 1rem;
+    margin-top: 1.7rem;
     transition: all 0.5s;
     &:hover,
     &:focus{
@@ -175,11 +193,12 @@ li{
     margin: 0;
 }
 
-.km{
-    border: 1px dashed white;
-    width: fit-content;
-    padding: 1rem;
+.notableThings{
     font-size: 1.5rem;
+    color: $passingKhaki;
+    // background-color: white;
+    // padding: 1rem;
+    // border-radius: 25px;
 }
 
 
@@ -259,7 +278,9 @@ footer{
        label,
        input,
        title,
-       .titleOfHike{
+       .titleOfHike,
+       textarea,
+       .wrapper{
            width: 95%;
            margin: 0 auto;
        }
