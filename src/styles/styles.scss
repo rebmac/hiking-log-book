@@ -110,7 +110,11 @@ input{
     justify-content: space-between;
 }
 
-
+.weatherIcon{
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: $junoColor;
+}
 
 .addLogButton{
     background-color: $teal;

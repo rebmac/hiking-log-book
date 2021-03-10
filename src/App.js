@@ -9,6 +9,10 @@ import { faSun } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
+
+
+
+
   //create a global variable for the firebase info
   const dbRef = firebase.database().ref();
   //Set the hooks to variables
@@ -93,13 +97,11 @@ function App() {
             </div>
           </div>
           
-          <label htmlFor="weather">Weather:</label>
-          <select name="weather" id="weather" className="weather wrapper">
-            <option value="sunny">
-              <><FontAwesomeIcon icon={faSun}/></>Sunny
-            </option>
-          </select>
+          <p>Weather:</p>
+          <label htmlFor="sunny"><FontAwesomeIcon className="weatherIcon" icon={faSun}/></label>
+          <input type="radio" id="sunny" name="weatherRadio" value="sunny"/>
 
+          
           <button className="addLogButton">Add trail log</button>
         </form>
         {/* map through booksArray in state and display them to the page */}
