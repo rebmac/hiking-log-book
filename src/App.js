@@ -39,9 +39,6 @@ function App() {
         });
       }
       setLoggedHikesArray(hikeDatabase);
-      console.log(hikeDatabase);
-
-
     });
   }, [])//pass a second argument of an empty array to ensure Hook runs only once after component renders
 
@@ -92,14 +89,14 @@ function App() {
               <input type="date" id="dateOfHike" onChange={handleDateChange} required />
             </div>
             <div className="displayColumn">
-              <label htmlFor="kmHiked">Km:</label>
+              <label htmlFor="kmHiked" className="kmHiked">Km:</label>
               <input type="number" id="kmHiked" placeholder="1.0" step="0.1" onChange={handleNumberChange} value={numberInput} required />
             </div>
           </div>
           
-          <p>Weather:</p>
+          {/* <p>Weather:</p>
           <label htmlFor="sunny"><FontAwesomeIcon className="weatherIcon" icon={faSun}/></label>
-          <input type="radio" id="sunny" name="weatherRadio" value="sunny"/>
+          <input type="radio" id="sunny" name="weatherRadio" value="sunny"/> */}
 
           
           <button className="addLogButton">Add trail log</button>
