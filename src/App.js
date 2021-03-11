@@ -1,8 +1,9 @@
 import './styles/styles.scss'
 import firebase from './firebase.js';
 import { useState, useEffect } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faSun } from '@fortawesome/free-solid-svg-icons';
+import TitleInput from './TitleInput';
+import TextInputComp from './TextInputComp';
+
 
 function App() {
   //create a global variable for the firebase info
@@ -12,7 +13,7 @@ function App() {
   const [titleInput, setTitleInput] = useState("");
   const [dateInput, setDateInput] = useState("");
   const [numberInput, setNumberInput] = useState("");
-  const [notableThingsInput, setNotableThingsInput] = useState("");
+  const [notableThings, setNotableThings] = useState("");
 
   //define the useEffect Hook
   useEffect(() => {
@@ -25,10 +26,11 @@ function App() {
       for (let hikeKey in hikeData) {
         hikeDatabase.push({
           uniqueKey: hikeKey,
-          title: hikeData[hikeKey].[0],
-          date: hikeData[hikeKey].[1],
-          km: hikeData[hikeKey].[2],
-          notableThings: hikeData[hikeKey].[3]
+        //
+          title: hikeData[hikeKey].titleOfHike,
+          date: hikeData[hikeKey].dateOfHike,
+          km: hikeData[hikeKey].kmHiked,
+          notableThings: hikeData[hikeKey].notableThingsOnHike
         });
       }
       setLoggedHikesArray(hikeDatabase);
@@ -38,14 +40,14 @@ function App() {
   //define the handlers
   const handleSubmit = (event) => {
     event.preventDefault();
+    const value = Object.fromEntries(new FormData(event.target));
+    // debugger
     //push the values in the numberInput and the dateInput state variables to the database
-    dbRef.push([titleInput, dateInput, numberInput, notableThingsInput]);
+    // dbRef.push([titleInput, dateInput, numberInput, notableThingsInput]);
+    dbRef.push(value);
     event.target.reset();
     setNumberInput("");
-  }
-
-  const handleTitleChange = (event) => {
-    setTitleInput(event.target.value);
+    setNotableThings("");
   }
 
   const handleDateChange = (event) => {
@@ -56,14 +58,9 @@ function App() {
     setNumberInput(event.target.value);
   }
 
-  const handleNotableThingsChange = (event) => {
-    setNotableThingsInput(event.target.value);
-  }
-
   const handleClick = (hikeUniqueId) => {
     dbRef.child(hikeUniqueId).remove();
   }
-
 
   return (
     <div className="App">
@@ -75,24 +72,26 @@ function App() {
       <main className="wrapper">
         <form action="" onSubmit={handleSubmit}>
 
-          <label htmlFor="titleOfHike">Title:</label>
-          <input type="text" id="titleOfHike" placeholder="e.g. Bruce Trail" onChange={handleTitleChange} className="titleOfHike wrapper" required />
+          <TitleInput value={ titleInput } onChange={(val)=>{
+            setTitleInput(val);
+          }}/>
 
           <div className="dateAndkm">
             <div className="displayColumn">
               <label htmlFor="dateOfHike" className="dateOfHike">Date:</label>
-              <input type="date" id="dateOfHike" onChange={handleDateChange} required />
+              <input type="date" id="dateOfHike" name="dateOfHike" onChange={handleDateChange} required />
             </div>
             <div className="displayColumn">
               <label htmlFor="kmHiked" className="kmHiked">Km:</label>
-              <input type="number" id="kmHiked" placeholder="1.0" step="0.1" onChange={handleNumberChange} value={numberInput} required />
+              <input type="number" name="kmHiked"id="kmHiked" placeholder="1.0" step="0.1" onChange={handleNumberChange} value={numberInput} required />
             </div>
           </div>
 
-          <label htmlFor="notableThingsOnHike" className="notableThingsOnHike">Notable Things:</label>
-          <textarea type="text" name="notableThingsOnhike" id="notableThingsOnHike" className="wrapper" rows="4" placeholder="e.g. weather, terrain, animals" onChange={handleNotableThingsChange} />
+          <TextInputComp value={ notableThings } onChange={(val)=>{
+              setNotableThings(val);
+          }}/>
 
-          <button className="addLogButton">Add trail log</button>
+          <button type="submit" className="addLogButton">Add trail log</button>
         </form>
         {/* map through booksArray in state and display them to the page */}
       </main>
